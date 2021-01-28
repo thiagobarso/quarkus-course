@@ -1,0 +1,12 @@
+package com.github.viniciusfcf.jaeger;
+
+import javax.transaction.Transactional;
+import javax.ws.rs.Path;
+
+@Path("/municipios")
+@Transactional
+public class MunicipioResource {
+	
+	Localidade
+
+}

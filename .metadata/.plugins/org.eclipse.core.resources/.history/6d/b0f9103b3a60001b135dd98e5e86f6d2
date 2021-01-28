@@ -1,0 +1,12 @@
+package com.github.viniciusfcf.jaeger;
+
+import java.util.List;
+
+public class LocalidadeService {
+
+	public List<Municipio> getMunicipios() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

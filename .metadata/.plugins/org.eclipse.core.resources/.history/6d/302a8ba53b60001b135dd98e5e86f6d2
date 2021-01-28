@@ -1,0 +1,24 @@
+# Configuration file
+# key = value
+
+# Configuração do datasource.
+# Drivers que podem ser nativos: H2, mariaDB e postgres. Existe client MongoDB
+# Poderia estar no persistence.xml, mas a documentação oficial sugere que utilize este arquivo
+quarkus.datasource.url = jdbc:postgresql://localhost:5432/postgres
+quarkus.datasource.driver = org.postgresql.Driver
+quarkus.datasource.username = postgres
+quarkus.datasource.password = postgres
+
+# Opções disponíveis: none (utilizado para a produção, juntamente com a extensão do Flyway), create, drop-and-create, drop, update
+# executar ./mvnw compile quarkus:dev -Dquarkus.profile=dev
+
+%dev.quarkus.hibernate-orm.database.generation = drop-and-create
+%dev.quarkus.hibernate-orm.sql-load-script = import-dev.sql
+
+%prod.quarkus.hibernate-orm.database.generation = none
+%prod.quarkus.hibernate-orm.sql-load-script = no-file
+
+quarkus.jaeger.service-name=aprenda-quarkus
+quarkus.jaeger.sampler-type=const
+quarkus.jaeger.sampler-param=1
+quarkus.jaeger.endpoint=http://localhost:14268/api/traces

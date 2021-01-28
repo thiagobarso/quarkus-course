@@ -1,0 +1,28 @@
+package com.github.viniciusfcf.jaeger;
+
+import java.util.List;
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+
+@ApplicationScoped
+public class LocalidadeService {
+	
+	@Inject EntityManager entityManager;
+	
+	@Inject @RestClient UnidadeFederativa ufService;
+
+	public List<Municipio> getMunicipios() {		
+		return entityManager.createQuery("select m from Municipios m", Municipio.class).getResultList();
+	}
+
+	public void addMunicipio(Municipio m) {
+		entityManager.persist(m);		
+	}
+	
+	public UnidadeFederativa getUF(Integer id) {
+		return ufService.getUF(id);
+	}
+
+}
